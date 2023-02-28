@@ -1,4 +1,3 @@
-
 interface TypesReports {
 
     String reportTypeOne();

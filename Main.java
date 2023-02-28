@@ -2,23 +2,30 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		User user = new User("Илья Муромец");
-		//предрологаем что пользователь может сформировать два возможных типа отчета
-		Report report = new Report(user);
+		//создаем пользователя
+		User userOne = new User("Илья Муромец");
 
-		//сохраняем два возможных типа отчета в двух возможных форматах файлов:
-		SaveInFile forSaveFile = new SaveInFile(report);
-		forSaveFile.saveReportTypeOneInCSV();
-		forSaveFile.saveReportTypeTwoInCSV();
-		forSaveFile.saveReportTypeOneInTXT();
-		forSaveFile.saveReportTypeTwoInTXT();
+		//создаем объект report в классе которого предусмотрено два
+		//метода для формирования отчетов двух различных типов
+		//при передаче 1-ого пользователя (объекта типа User):
+		Report report = new Report(userOne);
 
-		//выводим на экран два типа отчетов:
+		//выводим на экран отчет типа 1 и типа 2:
 		new Screen().outputReportTypeOne(report);
 		new Screen().outputReportTypeTwo(report);
 
-		//распечатываем два типа отчетов:
+		//распечатываем отчет типа 1 и типа 2:
 		new Printer().outputReportTypeOne(report);
 		new Printer().outputReportTypeTwo(report);
+
+		//сохраняем отчет первого и второго типа в файле формата TXT
+		SaveReport saveReportInFileFormatTXT = new SaveInFileFormatTXT(report);
+		saveReportInFileFormatTXT.saveReportTypesOne();
+		saveReportInFileFormatTXT.saveReportTypesTwo();
+
+		//сохраняем отчет первого и второго типа в файле формата CSV
+		SaveReport saveReportInFileFormatCSV = new SaveInFileFormatCSV(report);
+		saveReportInFileFormatCSV.saveReportTypesOne();
+		saveReportInFileFormatCSV.saveReportTypesTwo();
 	}
 }

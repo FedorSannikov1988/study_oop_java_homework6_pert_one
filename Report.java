@@ -1,8 +1,10 @@
 public class Report implements TypesReports {
 
+    /*
+    данный класс формирует два типа отчета
+    для пользователя
+     */
     private User user;
-
-    private String report = "";
 
     public Report(User user) {
         this.user = user;
@@ -10,13 +12,11 @@ public class Report implements TypesReports {
 
     @Override
     public String reportTypeOne() {
-        report = "GenerateReportTypeOne for user:" + " " + user.getNameUser();
-        return report;
+        return "GenerateReportTypeOne for user:" + " " + user.getNameUser();
     }
 
     @Override
     public String reportTypeTwo() {
-        report = "GenerateReportTypeTwo for user:" + " " + user.getNameUser();
-        return report;
+        return "GenerateReportTypeOne for user:" + " " + user.getNameUser();
     }
 }
